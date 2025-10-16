@@ -89,7 +89,7 @@ html, body {
 
 /* 헤더용 여백 */
 .pagespace-top { 
-    padding-top: 120px; 
+    padding-top: 80px; 
 }
 
 /* 본문 레이아웃  */
@@ -149,6 +149,11 @@ html, body {
   max-width: 100%;
   box-sizing: border-box;
 }
+.box-hero {
+    border-radius: 0 0 22px 22px;  
+    border: 2px solid #d9d7d6;
+}
+
 .heading { 
     font-size: 24px; 
     font-weight: 800; 
