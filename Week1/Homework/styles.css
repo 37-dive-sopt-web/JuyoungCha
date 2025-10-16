@@ -1,0 +1,356 @@
+/* 초기화 */
+html, body { 
+    margin: 0; 
+    padding: 0; 
+    overflow-x: hidden; 
+}
+
+/* 헤더  */
+.header {
+    position: fixed; 
+    left: 0; 
+    right: 0; 
+    top: 0; 
+    z-index: 50;
+    background-color: #ffffff;
+    border-bottom: 3.5px solid #dedfe4;
+    height: 85px;
+}
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
+    max-width: 1480px;
+    margin: 0 auto;
+}
+
+/* 헤더 왼쪽(로고랑 닉네임) */
+.header-left { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+.logo { 
+    width: 70px; 
+    height: 70px; 
+    border-radius: 999px; 
+    object-fit: cover; 
+}
+.logo-text { 
+    color: #333; 
+    font-size: 20px; 
+}
+
+/* 헤더 가운데 */
+.header-center { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+.title { 
+    font-weight: bold; 
+    font-size: 23px; 
+}
+.subtitle {
+    color: #666; 
+    font-size: 15px; 
+    margin-top: 8px; 
+}
+
+/* 헤더 오른쪽(소셜) */
+.header-right { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+.header-right .icon {
+    display: inline-grid; 
+    place-items: center;
+    width: 45px; 
+    height: 45px; 
+    border-radius: 15px;
+    border: 1px solid #2a2b31; 
+    background: #141519; 
+    color: #efebeb;
+}
+.header-right .icon:hover { 
+    transform: translateY(-2px); 
+}
+.header-right .icon svg { 
+    display: block; 
+    width: 23px; 
+    height: 23px; 
+    fill: currentColor; 
+}
+
+/* 헤더용 여백 */
+.pagespace-top { 
+    padding-top: 120px; 
+}
+
+/* 본문 레이아웃  */
+.two-columns {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 15px;
+  padding: 0 16px;
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 1500px;     
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 목차 */
+.side {
+  position: sticky; 
+  top: 120px;  
+  align-self: start;
+  background:#e5ac99;
+  border: 1px solid #e5e6ea;
+  border-radius: 20px;
+  padding: 14px;
+}
+.sidetitle { 
+    margin: 10px; 
+    font-size: 22px; 
+    font-weight: bold; 
+    color: #141313; 
+}
+.side a {
+  display: block; 
+  padding: 12px 16px; 
+  margin: 8px 0;
+  border-radius: 999px; 
+  color: #101010; 
+  font-size: 18px; 
+  font-weight: 700; 
+  text-decoration: none;
+}
+.side a:hover { 
+    background: #edcec8; 
+    /* border: 2px solid #d79689;  */
+    border-radius: 24px; 
+}
+
+/* 박스 */
+.box {
+  background: #e3b5a2;
+  border: 2px solid #d9d7d6;
+  border-radius: 22px;
+  padding: 24px;            
+  margin: 0 0 20px 0;      
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.heading { 
+    font-size: 24px; 
+    font-weight: 800; 
+    margin: 0 0 10px; 
+}
+
+/* 히어로 */
+.intro-row { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+.intro-photo { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 999px; 
+    object-fit: cover; 
+}
+.intro-text { 
+    margin: 0 0 8px; 
+    font-size: 20px; 
+}
+.intro-buttons { 
+    display: flex; 
+    gap: 10px;
+}
+.intro-button {
+  border: 2px solid #2a2b31; 
+  background: #000000; 
+  color: #ffffff;
+  padding: 8px 14px; 
+  border-radius: 10px; 
+  font-weight: 700; 
+  font-size: 16px; 
+  text-decoration: none;
+}
+.intro-button:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 18px rgba(0,0,0,.25); 
+}
+
+/* 스킬 태그 */
+.skill-list {
+  display: inline-flex; 
+  align-items: center;
+  padding: 6px 14px; 
+  margin: 4px; 
+  border-radius: 999px;
+  background: #f5efe7; 
+  border: 2px solid rgba(218,203,203,0.2);
+  font-size: 16px; 
+  height: auto;     
+}
+.skill-list:hover { 
+    transform: translateY(-2px); 
+}
+
+
+/* 나의 모습 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+/* 카드 */
+.card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #f5efe7;
+  border: 2px solid #e9cbc7;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.card:hover { 
+    transform: translateY(-6px); 
+    box-shadow: 0 16px 40px rgba(0,0,0,.35); 
+}
+
+/* 카드 이미지 */
+.card-image { 
+    display: block; 
+    width: 100%; aspect-ratio: 4 / 3; 
+    height: 200px;
+    object-fit: cover; 
+}
+
+/* 카드 본문 */
+.card-body { 
+    padding: 10px 12px 14px; 
+}
+.card-title { 
+    margin: 0 0 6px; 
+    font-weight: 700; 
+    font-size: 18px; 
+}
+.card-subtitle { 
+    margin: 0; 
+    color: #6d6f75; 
+    font-size: 15px; 
+}
+
+/* 카드 하트 */
+.card-heart {
+  position: absolute; 
+  right: 10px; 
+  bottom: 12px;
+  width: 32px; 
+  height: 32px; display: grid; 
+  place-items: center;
+  border-radius: 50%; 
+  background: rgba(63,63,63,0.25);
+}
+.card-heart svg { 
+    width: 18px; 
+    height: 18px; 
+    fill: #d9d9d9; 
+}
+.card-heart:hover { 
+    background-color: rgba(255,182,193,0.85); 
+}
+.card-heart:hover svg { 
+    fill: #fff; 
+}
+
+/* 사진첩 */
+#gallery .loop-box{
+  position: relative;
+  overflow: hidden;        
+  min-height: 180px;
+  padding: 10px 0;
+}
+
+#gallery .loop-track{
+  position: absolute; 
+  left: 0; 
+  top: 50%;
+  display: flex; 
+  gap: 16px;
+  will-change: transform;
+  animation: galleryMarquee 50s linear infinite;
+}
+
+#gallery .loop-track img{
+  width: 300px;         
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+#gallery .loop-track img:hover{ 
+    transform: scale(1.05); 
+}
+#gallery .loop-box:hover .loop-track{ 
+    animation-play-state: paused; 
+}
+@keyframes galleryMarquee{
+  from { transform: translate3d(0, -50%, 0); }
+  to   { transform: translate3d(-50%, -50%, 0); }
+}
+
+/* 푸터 */
+.footer {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px 0;           
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d79689;
+}
+
+/*  반응형  */
+@media (max-width: 680px)  {
+    .card-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .intro-row { 
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+    .two-columns { 
+        grid-template-columns: 1fr; 
+    }
+    .side { 
+        position: static; 
+        order: 2; 
+    }
+    .intro-photo { 
+        width: 80px;
+        height: 80px; 
+    }
+    .intro-text { 
+        font-size: 18px; 
+    }
+    .skill-list { 
+        font-size: 15px; 
+        padding: 6px 12px; 
+    }
+    #gallery .loop-track img{
+        width: 200px; 
+        height: 200px;    
+    }
+}
