@@ -137,6 +137,12 @@ html, body {
     /* border: 2px solid #d79689;  */
     border-radius: 24px; 
 }
+.side a[href="#intro"]:hover { 
+    border-radius: 20px 20px 6px 6px; 
+}
+.side a[href="#sentence"]:hover { 
+    border-radius: 6px 6px 20px 20px; 
+}
 
 /* 박스 */
 .box {
@@ -172,6 +178,10 @@ html, body {
     border-radius: 999px; 
     object-fit: cover; 
 }
+.intro-photo:hover {
+    transform: scale(1.05);           
+    box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  }
 .intro-text { 
     margin: 0 0 8px; 
     font-size: 20px; 
