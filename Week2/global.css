@@ -1,0 +1,20 @@
+:root {
+    --color-primary: #8ee5d6;   
+    --color-sub: #c2f9f2;      
+    --row-hover: #f3f6ff;      
+}
+  
+html, body { 
+    margin: 0; 
+    padding: 0; 
+    background: #f7f8fb; 
+}
+  
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 9px 12px;
+    color: #050505;
+    background-color: #8ee5d6;
+}
+  
