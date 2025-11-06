@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/** @jsxImportSource @emotion/react */
+import { Global, css } from "@emotion/react";
+import { css as ec } from "@emotion/react";
+import { useState } from "react";
+import TopBar from "./components/TopBar.jsx";
+import GameView from "./pages/GameView.jsx";
+import RankView from "./pages/RankView.jsx";
+import { theme } from "./styles/theme";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [tab, setTab] = useState("play");
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <Global
+        styles={css`
+          html, body {
+            margin: 0;
+            padding: 0;
+            background: ${theme.color.bg};
+          }
+          html, body, #root {
+            min-height: 100%;
+          }
+          body { min-height: 100dvh; } 
+          *, *::before, *::after { box-sizing: border-box; }
+        `}
+      />
 
-export default App
+      <div css={ec({ background: theme.color.bg, minHeight: "100dvh" })}>
+        <TopBar tab={tab} onChange={setTab} />
+        {tab === "play" ? <GameView /> : <RankView />}
+      </div>
+    </>
+  );
+}
