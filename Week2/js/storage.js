@@ -1,13 +1,15 @@
-import { members } from "../data/data.js";
+import { members as seed } from "../data/data.js";
 
-function initMembers() {
-  if (!localStorage.getItem("membersData")) {
-    localStorage.setItem("membersData", JSON.stringify(members));
+export const STORAGE_KEY = "membersData";
+
+export function initMembers() {
+  if (!localStorage.getItem(STORAGE_KEY)) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(seed));
   }
 }
 
-function getMembers() {
-  const raw = localStorage.getItem("membersData");
+export function getMembers() {
+  const raw = localStorage.getItem(STORAGE_KEY);
   try {
     return raw ? JSON.parse(raw) : [];
   } catch {
@@ -15,8 +17,6 @@ function getMembers() {
   }
 }
 
-function setMembers(newMembers) {
-  localStorage.setItem("membersData", JSON.stringify(newMembers));
+export function setMembers(next) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
 }
-
-export { initMembers, getMembers, setMembers };

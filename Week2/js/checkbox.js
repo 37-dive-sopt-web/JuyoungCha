@@ -1,36 +1,34 @@
-import { getMembers, setMembers } from "./storage.js";
-import { renderAllMembers, tbody } from "./render.js";
+import { tbody } from "./render.js";
 
-const buttonDelete = document.querySelector(".button_delete");
-const master = document.querySelector(".check_all");
-
-function syncMaster() {
+/* 부분 선택 및 전체 선택 동기화 */
+export function syncMaster(master) {
   const items = [...tbody.querySelectorAll(".row_check")];
-  const all = items.length > 0 && items.every((i) => i.checked);
-  master.checked = all;
+  const total = items.length;
+  const checked = items.filter(i => i.checked).length;
+
+  master.checked = total > 0 && checked === total;
+  master.indeterminate = checked > 0 && checked < total;
 }
 
-// 전체 선택 및 해제
-master.addEventListener("change", (e) => {
-  const checked = e.currentTarget.checked;
-  tbody.querySelectorAll(".row_check").forEach((i) => (i.checked = checked));
-});
+/* 체크박스 관련 핸들러 바인딩 */
+export function bindCheckboxes(master) {
+  // 전체 선택
+  master.addEventListener("change", (e) => {
+    const checked = e.currentTarget.checked;
+    tbody.querySelectorAll(".row_check").forEach((i) => (i.checked = checked));
+    syncMaster(master);
+  });
 
-// 개별 체크
-tbody.addEventListener("change", (e) => {
-  if (e.target.classList.contains("row_check")) syncMaster();
-});
+  // 개별 체크
+  tbody.addEventListener("change", (e) => {
+    if (e.target.classList.contains("row_check")) {
+      syncMaster(master);
+    }
+  });
+}
 
-// 선택 삭제
-buttonDelete.addEventListener("click", () => {
-  const ids = [...tbody.querySelectorAll(".row_check")]
-    .filter((c) => c.checked)
-    .map((c) => Number(c.closest("tr").dataset.id));
-
-  if (ids.length === 0) return;
-
-  const next = getMembers().filter((m) => !ids.includes(Number(m.id)));
-  setMembers(next);
-  renderAllMembers();
+/* 렌더 후 초기화 */
+export function resetMasterState(master) {
   master.checked = false;
-});
+  master.indeterminate = false;
+}
