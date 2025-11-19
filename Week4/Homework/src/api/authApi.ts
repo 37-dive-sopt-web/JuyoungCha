@@ -18,7 +18,6 @@ export type SignupRequest = {
   age: number;
 };
 
-// 로그인: POST /auth/login  (success 래퍼 응답)
 export async function requestLogin(body: LoginRequest): Promise<LoginData> {
   const res = await httpClient.post<ApiResponse<LoginData>>(
     "/auth/login",
@@ -33,7 +32,6 @@ export async function requestLogin(body: LoginRequest): Promise<LoginData> {
   return payload.data;
 }
 
-// 회원가입: POST /users  (유저 객체를 그대로 리턴, success 래퍼 없음)
 export async function requestSignup(body: SignupRequest): Promise<void> {
   await httpClient.post("/users", body);
 }
