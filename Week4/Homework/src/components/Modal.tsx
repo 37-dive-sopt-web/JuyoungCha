@@ -1,4 +1,3 @@
-// src/components/Modal.tsx
 import styled from "styled-components";
 import { Button } from "./Button";
 
